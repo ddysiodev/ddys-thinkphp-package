@@ -14,7 +14,7 @@ use Ddys\ThinkPHP\Support\Security;
 class Client
 {
     const DEFAULT_BASE_URL = 'https://ddys.io/api/v1';
-    const VERSION = '0.1.1';
+    const VERSION = '0.1.2';
 
     protected $config;
     protected $cache;
@@ -288,9 +288,20 @@ class Client
         }
 
         $year = Security::scalar(Arr::get($input, 'year'));
+        $yearValue = '';
+        if ($year !== '') {
+            if (!preg_match('/^[0-9]{4}$/', $year)) {
+                throw new DdysException('年份格式不正确。', 400, 'POST', '/requests');
+            }
+            $yearValue = (int) $year;
+            if ($yearValue < 1900 || $yearValue > 2099) {
+                throw new DdysException('年份范围应为 1900-2099。', 400, 'POST', '/requests');
+            }
+        }
+
         return [
             'title' => $title,
-            'year' => $year === '' ? '' : Security::intRange($year, 0, 1900, 2099),
+            'year' => $yearValue,
             'type' => Security::choice(Arr::get($input, 'type', ''), ['movie', 'series', 'variety', 'anime', ''], ''),
             'description' => Security::substr(Security::scalar(Arr::get($input, 'description')), 0, 1000),
             'douban_id' => Security::substr(Security::scalar(Arr::get($input, 'douban_id')), 0, 30),

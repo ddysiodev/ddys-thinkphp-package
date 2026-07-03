@@ -335,6 +335,9 @@ function checkStructure() {
   if (!client.includes('proxy_allow_routes') || !client.includes('normalizeRequestInput')) {
     fail('Client is missing proxy/request form safeguards');
   }
+  if (!client.includes("preg_match('/^[0-9]{4}$/', $year)") || !client.includes('年份范围应为 1900-2099')) {
+    fail('Client request form year validation is too loose');
+  }
 
   const routeText = read('routes/ddys.php');
   for (const route of routes) {
@@ -380,9 +383,11 @@ function checkStructure() {
   assertIncludes('README.zh-CN.md', '\u4f4e\u7aef\u5f71\u89c6 API');
   assertIncludes('README.zh-CN.md', 'ddys-thinkphp-package');
   assertIncludes('README.zh-CN.md', 'ddys:test');
+  assertIncludes('README.zh-CN.md', 'composer config repositories.ddys-thinkphp-package vcs');
   assertIncludes('README.zh-CN.md', 'Nginx');
   assertIncludes('README.zh-CN.md', 'Apache');
   assertIncludes('README.md', 'ddys-thinkphp-package');
+  assertIncludes('README.md', 'composer config repositories.ddys-thinkphp-package vcs');
 }
 
 checkComposer();

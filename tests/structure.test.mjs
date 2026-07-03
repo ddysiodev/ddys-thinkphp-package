@@ -67,6 +67,8 @@ test('client covers public, community, authenticated, and proxy API operations',
 
   assert.match(client, /proxy_allow_routes/);
   assert.match(client, /Authorization: Bearer/);
+  assert.match(client, /年份格式不正确。/);
+  assert.match(client, /年份范围应为 1900-2099。/);
   assert.match(client, /curl_init/);
   assert.match(client, /file_get_contents/);
 });
@@ -108,7 +110,9 @@ test('README wording is detailed, linked, and avoids misleading API wording', ()
 
   assert.match(zh, /低端影视 API/);
   assert.match(zh, /README\.md/);
+  assert.match(zh, /composer config repositories\.ddys-thinkphp-package vcs/);
   assert.match(en, /README\.zh-CN\.md/);
+  assert.match(en, /composer config repositories\.ddys-thinkphp-package vcs/);
   const forbidden = new RegExp([
     'DDYS ' + 'Open API',
     'Open' + 'AI',

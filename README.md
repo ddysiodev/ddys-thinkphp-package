@@ -5,8 +5,8 @@
 Official ThinkPHP package for the [DDYS](https://ddys.io/) API. It adds DDYS content pages, a local JSON proxy, server-side request submission, caching, diagnostics, commands, helpers, and a full PHP client to ThinkPHP 6.1 / 8 projects.
 
 - Repository: [ddysiodev/ddys-thinkphp-package](https://github.com/ddysiodev/ddys-thinkphp-package)
-- GitHub Release: [v0.1.1](https://github.com/ddysiodev/ddys-thinkphp-package/releases/tag/v0.1.1)
-- Download ZIP: [ddys-thinkphp-package-v0.1.1.zip](https://github.com/ddysiodev/ddys-thinkphp-package/releases/download/v0.1.1/ddys-thinkphp-package-v0.1.1.zip)
+- GitHub Release: [v0.1.2](https://github.com/ddysiodev/ddys-thinkphp-package/releases/tag/v0.1.2)
+- Download ZIP: [ddys-thinkphp-package-v0.1.2.zip](https://github.com/ddysiodev/ddys-thinkphp-package/releases/download/v0.1.2/ddys-thinkphp-package-v0.1.2.zip)
 - Composer package: `ddysiodev/ddys-thinkphp-package`
 - Recommended environment: ThinkPHP 6.1 / 8, PHP 7.2.5+, UTF-8 project
 - Main entry points: `Ddys\ThinkPHP\Client`, `Ddys\ThinkPHP\Facade\Ddys`, `ddys_client()`, `ddys_render()`
@@ -29,6 +29,13 @@ Official ThinkPHP package for the [DDYS](https://ddys.io/) API. It adds DDYS con
 
 ```bash
 composer require ddysiodev/ddys-thinkphp-package
+```
+
+Install from the GitHub VCS repository:
+
+```bash
+composer config repositories.ddys-thinkphp-package vcs https://github.com/ddysiodev/ddys-thinkphp-package
+composer require ddysiodev/ddys-thinkphp-package:^0.1
 ```
 
 ThinkPHP usually runs service discovery and vendor publish after Composer install. You can also run them manually:

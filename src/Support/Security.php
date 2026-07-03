@@ -53,7 +53,7 @@ class Security
 
     public static function normalizeBaseUrl($value, $fallback)
     {
-        $value = trim((string) $value);
+        $value = self::scalar($value);
         if ($value === '' || !preg_match('#^https?://#i', $value)) {
             return $fallback;
         }
@@ -66,7 +66,7 @@ class Security
 
     public static function safeMediaUrl($value)
     {
-        $value = trim((string) $value);
+        $value = self::scalar($value);
         return preg_match('#^https?://#i', $value) ? $value : '';
     }
 

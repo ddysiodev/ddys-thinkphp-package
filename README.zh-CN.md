@@ -5,8 +5,8 @@
 [低端影视](https://ddys.io/) API 的官方 ThinkPHP 扩展包，用于在 ThinkPHP 6.1 / 8 项目中集成低端影视内容展示、本地 JSON 代理、服务端求片、缓存、命令行诊断和开发者调用接口。
 
 - GitHub 仓库：[ddysiodev/ddys-thinkphp-package](https://github.com/ddysiodev/ddys-thinkphp-package)
-- GitHub Release：[v0.1.1](https://github.com/ddysiodev/ddys-thinkphp-package/releases/tag/v0.1.1)
-- 下载压缩包：[ddys-thinkphp-package-v0.1.1.zip](https://github.com/ddysiodev/ddys-thinkphp-package/releases/download/v0.1.1/ddys-thinkphp-package-v0.1.1.zip)
+- GitHub Release：[v0.1.2](https://github.com/ddysiodev/ddys-thinkphp-package/releases/tag/v0.1.2)
+- 下载压缩包：[ddys-thinkphp-package-v0.1.2.zip](https://github.com/ddysiodev/ddys-thinkphp-package/releases/download/v0.1.2/ddys-thinkphp-package-v0.1.2.zip)
 - Composer 包名：`ddysiodev/ddys-thinkphp-package`
 - 推荐环境：ThinkPHP 6.1 / 8，PHP 7.2.5+，UTF-8 项目
 - 核心入口：`Ddys\ThinkPHP\Client`、`Ddys\ThinkPHP\Facade\Ddys`、`ddys_client()`、`ddys_render()`
@@ -31,6 +31,13 @@
 
 ```bash
 composer require ddysiodev/ddys-thinkphp-package
+```
+
+GitHub VCS 安装方式：
+
+```bash
+composer config repositories.ddys-thinkphp-package vcs https://github.com/ddysiodev/ddys-thinkphp-package
+composer require ddysiodev/ddys-thinkphp-package:^0.1
 ```
 
 ThinkPHP 的 `service:discover` 和 `vendor:publish` 通常会在 Composer 安装后自动执行。也可以手动执行：
