@@ -1,0 +1,258 @@
+.ddys-thinkphp-page {
+  margin: 0;
+  background: #f5f7f8;
+  color: #17202a;
+  font: 14px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+.ddys-thinkphp-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 40px;
+}
+
+.ddys-thinkphp-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.ddys-thinkphp-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ddys-thinkphp-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ddys-thinkphp-nav a {
+  border: 1px solid #d8e0e6;
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: #334155;
+  background: #fff;
+  text-decoration: none;
+}
+
+.ddys-thinkphp-nav a.is-active {
+  border-color: #0f766e;
+  color: #0f766e;
+  background: #ecfdf5;
+}
+
+.ddys-thinkphp {
+  --ddys-thinkphp-gap: 16px;
+  color: #17202a;
+}
+
+.ddys-thinkphp-items {
+  display: grid;
+  grid-template-columns: repeat(var(--ddys-thinkphp-columns, 4), minmax(0, 1fr));
+  gap: var(--ddys-thinkphp-gap);
+}
+
+.ddys-thinkphp-layout-list .ddys-thinkphp-items,
+.ddys-thinkphp-layout-compact .ddys-thinkphp-items {
+  grid-template-columns: 1fr;
+}
+
+.ddys-thinkphp-card {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 12px;
+  min-width: 0;
+  border: 1px solid #dbe3e8;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.ddys-thinkphp-layout-grid .ddys-thinkphp-card {
+  grid-template-columns: 1fr;
+}
+
+.ddys-thinkphp-poster {
+  aspect-ratio: 2 / 3;
+  background: #e8eef2;
+  overflow: hidden;
+}
+
+.ddys-thinkphp-poster img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.ddys-thinkphp-card-body {
+  min-width: 0;
+  padding: 12px;
+}
+
+.ddys-thinkphp-title {
+  margin: 0 0 6px;
+  color: #0f172a;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.ddys-thinkphp-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ddys-thinkphp-title a:hover {
+  color: #0f766e;
+}
+
+.ddys-thinkphp-meta,
+.ddys-thinkphp-summary {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.ddys-thinkphp-summary {
+  margin-top: 8px;
+}
+
+.ddys-thinkphp-description,
+.ddys-thinkphp-sources,
+.ddys-thinkphp-calendar-day,
+.ddys-thinkphp-search,
+.ddys-thinkphp-request-form,
+.ddys-thinkphp-empty,
+.ddys-thinkphp-error {
+  border: 1px solid #dbe3e8;
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px;
+}
+
+.ddys-thinkphp-detail {
+  display: grid;
+  gap: 16px;
+}
+
+.ddys-thinkphp-source-group h3,
+.ddys-thinkphp-calendar-day h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+.ddys-thinkphp-resource {
+  margin: 6px 0;
+}
+
+.ddys-thinkphp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ddys-thinkphp-tags span {
+  border-radius: 999px;
+  padding: 5px 10px;
+  color: #0f766e;
+  background: #ecfdf5;
+}
+
+.ddys-thinkphp-search,
+.ddys-thinkphp-request-form {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.ddys-thinkphp-search {
+  grid-template-columns: minmax(0, 1fr) 140px auto;
+}
+
+.ddys-thinkphp-request-form label {
+  display: grid;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.ddys-thinkphp-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.ddys-thinkphp input,
+.ddys-thinkphp select,
+.ddys-thinkphp textarea,
+.ddys-thinkphp button {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #cbd5df;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.ddys-thinkphp button {
+  width: auto;
+  border-color: #0f766e;
+  color: #fff;
+  background: #0f766e;
+  cursor: pointer;
+}
+
+.ddys-thinkphp-status,
+.ddys-thinkphp-empty-inline {
+  margin: 0;
+  color: #64748b;
+}
+
+.ddys-thinkphp-status {
+  color: #0f766e;
+}
+
+.ddys-thinkphp-error {
+  color: #991b1b;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.ddys-thinkphp-empty {
+  color: #64748b;
+}
+
+@media (max-width: 860px) {
+  .ddys-thinkphp-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ddys-thinkphp-search {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .ddys-thinkphp-shell {
+    width: min(100% - 20px, 1180px);
+    padding-top: 14px;
+  }
+
+  .ddys-thinkphp-page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ddys-thinkphp-items {
+    grid-template-columns: 1fr;
+  }
+}

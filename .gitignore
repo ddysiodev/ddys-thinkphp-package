@@ -1,0 +1,12 @@
+/vendor/
+/runtime/
+/.idea/
+/.vscode/
+/.phpunit.cache/
+*.zip
+*.log
+*.tmp
+*.bak
+.env
+.env.*
+*.local

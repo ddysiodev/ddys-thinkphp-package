@@ -1,0 +1,30 @@
+{
+  "name": "ddysiodev/ddys-thinkphp-package",
+  "description": "低端影视 API 的官方 ThinkPHP 扩展包。",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.2.5",
+    "topthink/framework": "^6.1 || ^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ddys\\ThinkPHP\\": "src/"
+    },
+    "files": [
+      "src/helper.php"
+    ]
+  },
+  "extra": {
+    "think": {
+      "services": [
+        "Ddys\\ThinkPHP\\DdysService"
+      ],
+      "config": {
+        "ddys": "config/ddys.php"
+      }
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
