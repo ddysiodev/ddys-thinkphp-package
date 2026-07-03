@@ -79,7 +79,11 @@ class Renderer
 
     public function fullPage($view, array $params = [])
     {
-        $view = Security::choice($view, ['latest', 'hot', 'search', 'calendar', 'movie', 'collections', 'requests'], 'latest');
+        $view = Security::choice($view, [
+            'latest', 'movies', 'hot', 'search', 'calendar', 'movie', 'sources',
+            'related', 'comments', 'collections', 'collection', 'shares', 'share',
+            'requests', 'activities', 'user', 'types', 'genres', 'regions',
+        ], 'latest');
         $title = $this->pageTitle($view);
         $assets = $this->assets();
         $nav = $this->nav($view);
@@ -93,6 +97,9 @@ class Renderer
 
     public function pageContent($view, array $params = [])
     {
+        if ($view === 'movies') {
+            return $this->render('movies', $params);
+        }
         if ($view === 'hot') {
             return $this->render('hot', ['limit' => Arr::get($params, 'limit', 12)]);
         }
@@ -105,8 +112,37 @@ class Renderer
         if ($view === 'movie') {
             return $this->render('movie', ['slug' => Arr::get($params, 'slug', '')]);
         }
+        if ($view === 'sources') {
+            return $this->render('sources', ['slug' => Arr::get($params, 'slug', '')]);
+        }
+        if ($view === 'related') {
+            return $this->render('related', ['slug' => Arr::get($params, 'slug', '')]);
+        }
+        if ($view === 'comments') {
+            return $this->render('comments', [
+                'slug' => Arr::get($params, 'slug', ''),
+                'page' => Arr::get($params, 'page', 1),
+                'per_page' => Arr::get($params, 'per_page', 20),
+            ]);
+        }
         if ($view === 'collections') {
             return $this->render('collections', ['page' => Arr::get($params, 'page', 1)]);
+        }
+        if ($view === 'collection') {
+            return $this->render('collection', [
+                'slug' => Arr::get($params, 'slug', ''),
+                'page' => Arr::get($params, 'page', 1),
+                'per_page' => Arr::get($params, 'per_page', 24),
+            ]);
+        }
+        if ($view === 'shares') {
+            return $this->render('shares', [
+                'page' => Arr::get($params, 'page', 1),
+                'per_page' => Arr::get($params, 'per_page', 20),
+            ]);
+        }
+        if ($view === 'share') {
+            return $this->render('share', ['id' => Arr::get($params, 'id', 0)]);
         }
         if ($view === 'requests') {
             $html = '';
@@ -115,6 +151,19 @@ class Renderer
             }
             $html .= $this->render('requests', ['page' => Arr::get($params, 'page', 1)]);
             return $html;
+        }
+        if ($view === 'activities') {
+            return $this->render('activities', [
+                'type' => Arr::get($params, 'type', ''),
+                'page' => Arr::get($params, 'page', 1),
+                'per_page' => Arr::get($params, 'per_page', 20),
+            ]);
+        }
+        if ($view === 'user') {
+            return $this->render('user', ['username' => Arr::get($params, 'username', '')]);
+        }
+        if (in_array($view, ['types', 'genres', 'regions'], true)) {
+            return $this->render($view, $params);
         }
         return $this->render('latest', ['limit' => Arr::get($params, 'limit', 12)]);
     }
@@ -311,10 +360,12 @@ class Renderer
         }
         $items = [
             'latest' => '最新',
+            'movies' => '影片',
             'hot' => '热门',
             'search' => '搜索',
             'calendar' => '日历',
             'collections' => '片单',
+            'shares' => '分享',
             'requests' => '求片',
         ];
         $html = '<nav class="ddys-thinkphp-nav">';
@@ -455,12 +506,24 @@ class Renderer
     {
         $titles = [
             'latest' => '低端影视',
+            'movies' => '影片库',
             'hot' => '热门影片',
             'search' => '搜索',
             'calendar' => '日历',
             'movie' => '影片详情',
+            'sources' => '播放与下载资源',
+            'related' => '相关影片',
+            'comments' => '评论',
             'collections' => '片单',
+            'collection' => '片单详情',
+            'shares' => '分享',
+            'share' => '分享详情',
             'requests' => '求片',
+            'activities' => '动态',
+            'user' => '用户',
+            'types' => '类型',
+            'genres' => '分类',
+            'regions' => '地区',
         ];
         return isset($titles[$view]) ? $titles[$view] : '低端影视';
     }

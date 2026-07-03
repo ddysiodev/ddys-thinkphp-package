@@ -5,8 +5,8 @@
 [低端影视](https://ddys.io/) API 的官方 ThinkPHP 扩展包，用于在 ThinkPHP 6.1 / 8 项目中集成低端影视内容展示、本地 JSON 代理、服务端求片、缓存、命令行诊断和开发者调用接口。
 
 - GitHub 仓库：[ddysiodev/ddys-thinkphp-package](https://github.com/ddysiodev/ddys-thinkphp-package)
-- GitHub Release：[v0.1.0](https://github.com/ddysiodev/ddys-thinkphp-package/releases/tag/v0.1.0)
-- 下载压缩包：[ddys-thinkphp-package-v0.1.0.zip](https://github.com/ddysiodev/ddys-thinkphp-package/releases/download/v0.1.0/ddys-thinkphp-package-v0.1.0.zip)
+- GitHub Release：[v0.1.1](https://github.com/ddysiodev/ddys-thinkphp-package/releases/tag/v0.1.1)
+- 下载压缩包：[ddys-thinkphp-package-v0.1.1.zip](https://github.com/ddysiodev/ddys-thinkphp-package/releases/download/v0.1.1/ddys-thinkphp-package-v0.1.1.zip)
 - Composer 包名：`ddysiodev/ddys-thinkphp-package`
 - 推荐环境：ThinkPHP 6.1 / 8，PHP 7.2.5+，UTF-8 项目
 - 核心入口：`Ddys\ThinkPHP\Client`、`Ddys\ThinkPHP\Facade\Ddys`、`ddys_client()`、`ddys_render()`
@@ -18,7 +18,7 @@
 - 全功能 API Client：影片、最新、热门、搜索、建议、日历、字典、片单、分享、求片、动态、用户、评论、举报、关注。
 - 本地 JSON 代理：前端请求本站 `/ddys/api`，服务端再请求低端影视 API。
 - 服务端求片提交：API Key 只保存在服务端，支持 nonce 校验、蜜罐字段和 IP 限流。
-- 前台独立页面：最新、热门、搜索、日历、影片详情、片单、求片。
+- 前台独立页面：最新、影片库、热门、搜索、日历、影片详情、资源、相关、评论、片单、分享、求片、动态、用户和字典。
 - 内置渲染器：可直接输出卡片列表、详情、资源、日历、字典、搜索框和求片表单。
 - 模板助手函数：`ddys_latest()`、`ddys_hot()`、`ddys_movie()`、`ddys_render()` 等。
 - Facade 调用：`Ddys::latest()`、`Ddys::movie('i-robot')`。
@@ -161,12 +161,24 @@ class MovieController
 
 ```text
 GET  /ddys
+GET  /ddys/movies
 GET  /ddys/hot
 GET  /ddys/search
 GET  /ddys/calendar
 GET  /ddys/movie/:slug
+GET  /ddys/movie/:slug/sources
+GET  /ddys/movie/:slug/related
+GET  /ddys/movie/:slug/comments
 GET  /ddys/collections
+GET  /ddys/collection/:slug
+GET  /ddys/shares
+GET  /ddys/share/:id
 GET  /ddys/requests
+GET  /ddys/activities
+GET  /ddys/user/:username
+GET  /ddys/types
+GET  /ddys/genres
+GET  /ddys/regions
 GET  /ddys/api
 POST /ddys/request-submit
 GET  /ddys/check
@@ -183,8 +195,12 @@ GET  /ddys/assets/:type/:file
 /ddys/api?route=movie&slug=i-robot
 /ddys/api?route=sources&slug=i-robot
 /ddys/api?route=related&slug=i-robot
+/ddys/api?route=comments&slug=i-robot
 /ddys/api?route=collections&per_page=10
+/ddys/api?route=shares&per_page=10
 /ddys/api?route=requests&per_page=10
+/ddys/api?route=activities&per_page=10
+/ddys/api?route=types
 ```
 
 代理只允许配置中的 `security.proxy_allow_routes`，不会把任意 URL 暴露给前端。

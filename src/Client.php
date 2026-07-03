@@ -14,7 +14,7 @@ use Ddys\ThinkPHP\Support\Security;
 class Client
 {
     const DEFAULT_BASE_URL = 'https://ddys.io/api/v1';
-    const VERSION = '0.1.0';
+    const VERSION = '0.1.1';
 
     protected $config;
     protected $cache;

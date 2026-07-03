@@ -23,12 +23,24 @@ test('routes expose standalone pages, local JSON proxy, request submit, checks, 
 
   for (const route of [
     "Route::get('',",
+    "Route::get('movies'",
     "Route::get('hot'",
     "Route::get('search'",
     "Route::get('calendar'",
+    "Route::get('movie/:slug/sources'",
+    "Route::get('movie/:slug/related'",
+    "Route::get('movie/:slug/comments'",
     "Route::get('movie/:slug'",
+    "Route::get('collection/:slug'",
     "Route::get('collections'",
+    "Route::get('share/:id'",
+    "Route::get('shares'",
     "Route::get('requests'",
+    "Route::get('activities'",
+    "Route::get('user/:username'",
+    "Route::get('types'",
+    "Route::get('genres'",
+    "Route::get('regions'",
     "Route::get('api'",
     "Route::post('request-submit'",
     "Route::get('check'",
@@ -64,6 +76,8 @@ test('renderer handles real API data shapes and expected public views', () => {
 
   for (const token of [
     'latest', 'hot', 'search', 'calendar', 'movie', 'collections', 'requests',
+    'movies', 'sources', 'related', 'comments', 'shares', 'share', 'activities',
+    'user', 'types', 'genres', 'regions',
     'shows', 'cn_name', 'en_name', 'episode', 'is_premiere', 'is_finale',
     'resources', 'online', 'download', 'requestForm', 'dictionaryHtml',
   ]) {

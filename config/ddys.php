@@ -5,7 +5,7 @@ return [
     'site_base_url' => function_exists('env') ? env('DDYS_SITE_BASE_URL', 'https://ddys.io') : (getenv('DDYS_SITE_BASE_URL') ?: 'https://ddys.io'),
     'api_key' => function_exists('env') ? env('DDYS_API_KEY', '') : (getenv('DDYS_API_KEY') ?: ''),
     'timeout' => 12,
-    'user_agent' => 'ddys-thinkphp-package/0.1.0',
+    'user_agent' => 'ddys-thinkphp-package/0.1.1',
 
     'route_prefix' => 'ddys',
     'route_middleware' => [],

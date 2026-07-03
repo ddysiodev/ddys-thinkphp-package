@@ -29,6 +29,11 @@ class DdysController
         return $this->html($this->renderer->fullPage('latest', $this->params()));
     }
 
+    public function movies()
+    {
+        return $this->html($this->renderer->fullPage('movies', $this->params()));
+    }
+
     public function hot()
     {
         return $this->html($this->renderer->fullPage('hot', $this->params()));
@@ -51,14 +56,81 @@ class DdysController
         return $this->html($this->renderer->fullPage('movie', $params));
     }
 
+    public function movieSources($slug = '')
+    {
+        $params = $this->params();
+        $params['slug'] = $slug ?: Arr::get($params, 'slug', '');
+        return $this->html($this->renderer->fullPage('sources', $params));
+    }
+
+    public function movieRelated($slug = '')
+    {
+        $params = $this->params();
+        $params['slug'] = $slug ?: Arr::get($params, 'slug', '');
+        return $this->html($this->renderer->fullPage('related', $params));
+    }
+
+    public function movieComments($slug = '')
+    {
+        $params = $this->params();
+        $params['slug'] = $slug ?: Arr::get($params, 'slug', '');
+        return $this->html($this->renderer->fullPage('comments', $params));
+    }
+
     public function collections()
     {
         return $this->html($this->renderer->fullPage('collections', $this->params()));
     }
 
+    public function collection($slug = '')
+    {
+        $params = $this->params();
+        $params['slug'] = $slug ?: Arr::get($params, 'slug', '');
+        return $this->html($this->renderer->fullPage('collection', $params));
+    }
+
+    public function shares()
+    {
+        return $this->html($this->renderer->fullPage('shares', $this->params()));
+    }
+
+    public function share($id = 0)
+    {
+        $params = $this->params();
+        $params['id'] = $id ?: Arr::get($params, 'id', 0);
+        return $this->html($this->renderer->fullPage('share', $params));
+    }
+
     public function requests()
     {
         return $this->html($this->renderer->fullPage('requests', $this->params()));
+    }
+
+    public function activities()
+    {
+        return $this->html($this->renderer->fullPage('activities', $this->params()));
+    }
+
+    public function user($username = '')
+    {
+        $params = $this->params();
+        $params['username'] = $username ?: Arr::get($params, 'username', '');
+        return $this->html($this->renderer->fullPage('user', $params));
+    }
+
+    public function types()
+    {
+        return $this->html($this->renderer->fullPage('types', $this->params()));
+    }
+
+    public function genres()
+    {
+        return $this->html($this->renderer->fullPage('genres', $this->params()));
+    }
+
+    public function regions()
+    {
+        return $this->html($this->renderer->fullPage('regions', $this->params()));
     }
 
     public function api()

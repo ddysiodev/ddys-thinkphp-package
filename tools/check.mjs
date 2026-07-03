@@ -48,12 +48,24 @@ const clientMethods = [
 const routes = [
   "Route::get('',",
   "Route::get('/',",
+  "Route::get('movies'",
   "Route::get('hot'",
   "Route::get('search'",
   "Route::get('calendar'",
+  "Route::get('movie/:slug/sources'",
+  "Route::get('movie/:slug/related'",
+  "Route::get('movie/:slug/comments'",
   "Route::get('movie/:slug'",
+  "Route::get('collection/:slug'",
   "Route::get('collections'",
+  "Route::get('share/:id'",
+  "Route::get('shares'",
   "Route::get('requests'",
+  "Route::get('activities'",
+  "Route::get('user/:username'",
+  "Route::get('types'",
+  "Route::get('genres'",
+  "Route::get('regions'",
   "Route::get('api'",
   "Route::post('request-submit'",
   "Route::get('check'",
@@ -332,7 +344,7 @@ function checkStructure() {
   }
 
   const renderer = read('src/Renderer.php');
-  for (const token of ['shows', 'cn_name', 'episode', 'is_premiere', 'is_finale', 'requestForm', 'sourcesHtml', 'dictionaryHtml']) {
+  for (const token of ['shows', 'cn_name', 'episode', 'is_premiere', 'is_finale', 'requestForm', 'sourcesHtml', 'dictionaryHtml', 'activities', 'shares', 'regions']) {
     if (!renderer.includes(token)) {
       fail(`Renderer is missing ${token}`);
     }

@@ -5,8 +5,8 @@
 Official ThinkPHP package for the [DDYS](https://ddys.io/) API. It adds DDYS content pages, a local JSON proxy, server-side request submission, caching, diagnostics, commands, helpers, and a full PHP client to ThinkPHP 6.1 / 8 projects.
 
 - Repository: [ddysiodev/ddys-thinkphp-package](https://github.com/ddysiodev/ddys-thinkphp-package)
-- GitHub Release: [v0.1.0](https://github.com/ddysiodev/ddys-thinkphp-package/releases/tag/v0.1.0)
-- Download ZIP: [ddys-thinkphp-package-v0.1.0.zip](https://github.com/ddysiodev/ddys-thinkphp-package/releases/download/v0.1.0/ddys-thinkphp-package-v0.1.0.zip)
+- GitHub Release: [v0.1.1](https://github.com/ddysiodev/ddys-thinkphp-package/releases/tag/v0.1.1)
+- Download ZIP: [ddys-thinkphp-package-v0.1.1.zip](https://github.com/ddysiodev/ddys-thinkphp-package/releases/download/v0.1.1/ddys-thinkphp-package-v0.1.1.zip)
 - Composer package: `ddysiodev/ddys-thinkphp-package`
 - Recommended environment: ThinkPHP 6.1 / 8, PHP 7.2.5+, UTF-8 project
 - Main entry points: `Ddys\ThinkPHP\Client`, `Ddys\ThinkPHP\Facade\Ddys`, `ddys_client()`, `ddys_render()`
@@ -18,7 +18,7 @@ Official ThinkPHP package for the [DDYS](https://ddys.io/) API. It adds DDYS con
 - Full API client for movies, latest, hot, search, suggestions, calendar, dictionaries, collections, shares, requests, activities, users, comments, reports, and follow actions.
 - Local JSON proxy through `/ddys/api`.
 - Server-side request form with nonce checks, honeypot field, and IP rate limiting.
-- Standalone frontend pages for latest, hot, search, calendar, movie detail, collections, and requests.
+- Standalone frontend pages for latest, movies, hot, search, calendar, movie detail, sources, related movies, comments, collections, shares, requests, activities, users, and dictionaries.
 - Built-in renderer for lists, details, sources, calendar, dictionaries, search, and request form.
 - Helper functions and Facade calls.
 - ThinkPHP Cache integration with route-aware TTLs.
@@ -93,12 +93,24 @@ The default `route_prefix` is `ddys`:
 
 ```text
 GET  /ddys
+GET  /ddys/movies
 GET  /ddys/hot
 GET  /ddys/search
 GET  /ddys/calendar
 GET  /ddys/movie/:slug
+GET  /ddys/movie/:slug/sources
+GET  /ddys/movie/:slug/related
+GET  /ddys/movie/:slug/comments
 GET  /ddys/collections
+GET  /ddys/collection/:slug
+GET  /ddys/shares
+GET  /ddys/share/:id
 GET  /ddys/requests
+GET  /ddys/activities
+GET  /ddys/user/:username
+GET  /ddys/types
+GET  /ddys/genres
+GET  /ddys/regions
 GET  /ddys/api
 POST /ddys/request-submit
 GET  /ddys/check
@@ -115,8 +127,12 @@ Local JSON proxy examples:
 /ddys/api?route=movie&slug=i-robot
 /ddys/api?route=sources&slug=i-robot
 /ddys/api?route=related&slug=i-robot
+/ddys/api?route=comments&slug=i-robot
 /ddys/api?route=collections&per_page=10
+/ddys/api?route=shares&per_page=10
 /ddys/api?route=requests&per_page=10
+/ddys/api?route=activities&per_page=10
+/ddys/api?route=types
 ```
 
 ## Client Methods
